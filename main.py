@@ -151,7 +151,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content_type', 'application/json;charset=utf-8')
         self.end_headers()
-        path = os.getcwd() + f"temp/tempPetPet-{member_id}.gif"
+        path = os.getcwd() + f"/temp/tempPetPet-{member_id}.gif"
         data = json.dumps({'msg': 200, 'path': path})
         self.wfile.write(data.encode('utf-8'))
 
