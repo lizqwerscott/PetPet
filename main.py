@@ -119,9 +119,7 @@ async def petpet(member_id, flip=False, squish=0, fps=20) -> None:
 
     gif_frames = []
     img_content = await get_avatar(member_id)
-    print("avator")
     avatar = IMG.open(BytesIO(img_content))
-    print(avatar)
 
     # 生成每一帧
     for i in range(5):
@@ -138,13 +136,11 @@ def make(member_id):
 
 class Handler(BaseHTTPRequestHandler):
     def do_POST(self):
-        print(self.headers)
         req_datas = self.rfile.read(int(self.headers['content-length']))
         print("get--")
         res = req_datas.decode('utf-8')
         print(res)
         member_id = res.split("=")[1]
-        print(member_id)
         make(int(member_id))
         print("finish---")
 
